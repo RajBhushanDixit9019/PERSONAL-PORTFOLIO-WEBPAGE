@@ -1,0 +1,850 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Default Light Theme Variables */
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333333;
+  --primary-color: #0a66c2;
+  --secondary-color: #f4f4f9;
+  --card-bg: #ffffff;
+  --border-color: #eaeaea;
+  --hover-color: #004182;
+  --form-bg: #ffffff;
+  --button-bg: #0a66c2;
+  --button-hover-bg: #004182;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --bg-color: #1e1e2e;
+  --text-color: #e4e4e7;
+  --primary-color: #82aaff;
+  --secondary-color: #2a2a3d;
+  --card-bg: #282838;
+  --border-color: #3e3e51;
+  --hover-color: #b1c7ff;
+  --form-bg: #2e2e3d;
+  --button-bg: #82aaff;
+  --button-hover-bg: #b1c7ff;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+/* Section Styling */
+.section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:nth-child(even) {
+  background-color: var(--card-bg);
+}
+
+h2 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Typing Animation Styles */
+.typewrite {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: typing 5s steps(35) 1s normal forwards,
+    blink-caret 0.75s step-end infinite;
+  animation-direction: normal; /* Run only in forward direction */
+  animation-iteration-count: infinite; /* Repeat indefinitely */
+}
+
+/* Cursor Blinking Effect */
+.typewrite > .wrap {
+  display: inline-block;
+}
+
+/* Smoother Typing Animation */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Smoother Typing Cursor Blink Effect */
+@keyframes blink-caret {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff; /* Visible cursor */
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Apply Easing for smoother transitions */
+.typing {
+  animation-timing-function: cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  ); /* Smoother start and end */
+}
+
+/* Smoother Typing Steps with slight delay at each letter */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  5% {
+    width: 4%;
+  }
+  10% {
+    width: 8%;
+  }
+  20% {
+    width: 20%;
+  }
+  30% {
+    width: 35%;
+  }
+  40% {
+    width: 50%;
+  }
+  60% {
+    width: 75%;
+  }
+  80% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Reverse Animation Removed */
+@keyframes reverseTyping {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Smoother Typing Steps with slight delay at each letter */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  5% {
+    width: 4%;
+  }
+  10% {
+    width: 8%;
+  }
+  20% {
+    width: 20%;
+  }
+  30% {
+    width: 35%;
+  }
+  40% {
+    width: 50%;
+  }
+  60% {
+    width: 75%;
+  }
+  80% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Add reverse animation to make typing effect disappear after reaching full width */
+@keyframes reverseTyping {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Header Styling - Unfixed */
+header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo Section */
+header .logo {
+  text-align: left;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.2rem;
+}
+
+header h2 {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+/* Navigation */
+header nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 0.2rem;
+}
+
+header nav a:hover {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* Theme Switch */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Switch styling */
+  .icon-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+  }
+  
+  .icon-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .icon {
+    position: absolute;
+    font-size: 44px;
+    line-height: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  /* Sun icon (light mode) */
+  .sun-icon {
+    color: #ffa500; /* Bright color for light mode */
+    opacity: 1;
+    transform: scale(1); /* Fully visible by default */
+  }
+  
+  /* Moon icon (dark mode) */
+  .moon-icon {
+    color: #555; /* Dim color for dark mode */
+    opacity: 0;
+    transform: scale(0); /* Hidden by default */
+  }
+  
+  /* Checked state animations */
+  .icon-switch input:checked ~ .sun-icon {
+    opacity: 0;
+    transform: scale(0); /* Hide the sun icon */
+  }
+  
+  .icon-switch input:checked ~ .moon-icon {
+    opacity: 1;
+    transform: scale(1); /* Show the moon icon */
+  }
+  
+  .icon-switch input:not(:checked) ~ .sun-icon {
+    opacity: 1;
+    transform: scale(1); /* Show the sun icon */
+  }
+  
+  .icon-switch input:not(:checked) ~ .moon-icon {
+    opacity: 0;
+    transform: scale(0); /* Hide the moon icon */
+  }
+  
+/* Skills Section */
+#skills {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skills h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.skills-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Skill Card */
+.skill-card {
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Proficiency Bar */
+.proficiency {
+  margin: 1rem 0;
+}
+
+.proficiency-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.proficiency-bar {
+  height: 10px;
+  background-color: var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.proficiency-bar span {
+  display: block;
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+/* More Button */
+.more-btn {
+  background-color: var(--button-bg);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+.more-btn:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .skill-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #skills h2 {
+    font-size: 1.8rem;
+  }
+
+  .skills-cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .skill-card {
+    padding: 0.75rem;
+  }
+
+  .proficiency-label {
+    font-size: 0.8rem;
+  }
+
+  .more-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Projects Section Styling */
+#projects {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.projects-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Project Card */
+.project-card {
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--secondary-color);
+}
+
+/* Project Title */
+.project-card h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Project Description */
+.project-card p {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Project Link */
+.project-card a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.project-card a:hover {
+  color: var(--hover-color);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #projects h2 {
+    font-size: 1.8rem;
+  }
+
+  .projects-cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .project-card {
+    padding: 0.75rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+
+  .project-card a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Contact Form Styling */
+#contact {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+input,
+textarea {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--form-bg);
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+button.btn {
+  padding: 1rem;
+  border: none;
+  background-color: var(--button-bg);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Responsive Form Styling */
+@media (max-width: 768px) {
+  form {
+    padding: 1.5rem 1rem;
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    width: 100%;
+  }
+}
+
+/* Ensure the Logo and About Me Section are side by side 
+#about {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+   Container for side-by-side layout of logo and about text 
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens 
+  }
+  
+  .logo {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .about-text {
+    flex: 1;
+    padding-left: 2rem;
+    text-align: left;
+  }
+  
+  .logo h2, .about-text h2 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  .logo p, .about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+   Ensure responsiveness 
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;  Stack the logo and about section vertically 
+      align-items: center;
+      text-align: center;
+    }
+  
+    .about-text {
+      padding-left: 0;
+      padding-top: 2rem;
+    }
+  } */
+
+/* Footer */
+footer {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projects-wrapper {
+    padding: 1rem 0;
+  }
+
+  .projects-cards {
+    gap: 1rem;
+  }
+
+  .project-card {
+    min-width: 250px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  header .container {
+    padding: 0.5rem;
+  }
+
+  .projects-wrapper {
+    gap: 1rem;
+  }
+
+  .projects-cards {
+    gap: 1rem;
+  }
+
+  .project-card {
+    min-width: 200px;
+    padding: 1rem;
+  }
+
+  .skills-list {
+    gap: 0.5rem;
+  }
+
+  .skills-list li {
+    font-size: 0.85rem;
+  }
+
+  header nav a {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 1.5rem 1rem;
+  }
+
+  header .container {
+    padding: 0.5rem;
+  }
+
+  .projects-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .projects-cards {
+    gap: 1rem;
+  }
+
+  .project-card {
+    min-width: 180px;
+    padding: 1rem;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header nav ul {
+    gap: 1rem;
+  }
+
+  header nav a {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
+}
